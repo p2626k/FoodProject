@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">FoodProject</string>
+    <string name="todo">TODO</string>
+    <string name="Medeteranian">Medeteranian</string>
+    <string name="what_are_you_hungry_for_now">What are you hungry for now?</string>
+    <string name="french">French</string>
+    <string name="japanese">Japanese</string>
+    <string name="mexican">Mexican</string>
+    <string name="how_much_dough_do_you_have">How much dough do you have?</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="brunch">Brunch</string>
+    <string name="what_are_you_craving">What are you craving?</string>
+    <string name="i_just_want_to_look_at_food_pics">I just want to look at food pics</string>
+    <string name="drinks">Drinks</string>
+    <string name="dinner">Dinner</string>
+    <string name="munchies">Munchies</string>
+    <string name="lunch">Lunch</string>
+    <string name="american">American</string>
+    <string name="thai">Thai</string>
+    <string name="vietnam">Viet</string>
+    <string name="pizza">Pizza</string>
+    <string name="desserts">Desserts</string>
+    <string name="indian">Indian</string>
+    <string name="italian">Italian</string>
+    <string name="vegetarian">Vegetarian</string>
+    <string name="medeteranian">Medeteranian</string>
+    <string name="bring_me_everything">Bring me everything</string>
+    <string name="how_far_do_you_want_to_go">How far do you want to go?</string>
+    <string name="liked">LIKED</string>
+    <string name="menu">MENU</string>
+    <string name="todo1">TODO</string>
+    <string name="explore_menu">Explore Menu</string>
+    <string name="todo2">TODO</string>
+    <string name="chinese">Chinese</string>
+    <string name="cancel">CANCEL</string>
+    <string name="done">DONE</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
