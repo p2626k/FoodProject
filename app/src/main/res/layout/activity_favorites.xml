@@ -17,31 +17,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"/>
-
         <FrameLayout
             android:id="@android:id/tabcontent"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
-
+            <!--定義Liked頁籤內容-->
             <LinearLayout
                 android:id="@+id/Liked"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvLiked"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 </android.support.v7.widget.RecyclerView>
             </LinearLayout>
-
+            <!--定義SuperLiked頁籤內容-->
             <LinearLayout
                 android:id="@+id/SuperLiked"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:orientation="vertical">
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
+                android:id="@+id/rvSuperLiked"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             </android.support.v7.widget.RecyclerView>

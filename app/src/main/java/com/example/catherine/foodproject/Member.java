@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class Member extends Application implements Serializable {
+public class Member implements Serializable {
     private String name;
     private int image;
     private String distance;
     private int image1;
     private String address;
-    private double priceEvaluation;//RatingBar數量
+    private float priceEvaluation;//RatingBar數量
     private String cuisineType;
     private String foodType;
 
@@ -21,7 +21,7 @@ public class Member extends Application implements Serializable {
     public Member() {
     }
 
-    public Member(String name, int Image, String distance, int image1, String address, double priceEvaluation, String cuisineType, String foodType){
+    public Member(String name, int Image, String distance, int image1, String address, float priceEvaluation, String cuisineType, String foodType){
         super();
         this.name = name;
         this.image = Image;
@@ -74,11 +74,11 @@ public class Member extends Application implements Serializable {
         this.address = address;
     }
 
-    public double getPriceEvaluation() {
+    public float getPriceEvaluation() {
         return priceEvaluation;
     }
 
-    public void setPriceEvaluation(double priceEvaluation) {
+    public void setPriceEvaluation(float priceEvaluation) {
         this.priceEvaluation = priceEvaluation;
     }
 

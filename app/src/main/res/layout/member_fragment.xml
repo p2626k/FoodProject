@@ -52,6 +52,27 @@
             android:textSize="10sp"
             />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        style="?android:buttonBarStyle">
+
+        <Button
+            android:id="@+id/btLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Like"
+            style="?android:buttonBarButtonStyle" />
+
+        <Button
+            android:id="@+id/btSuperLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SuperLike"
+            style="?android:buttonBarButtonStyle" />
+    </LinearLayout>
 
 
 </LinearLayout>

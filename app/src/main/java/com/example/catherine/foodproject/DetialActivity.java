@@ -7,12 +7,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import android.support.v4.app.FragmentManager;
-
 import com.bumptech.glide.Glide;
 
-import java.util.List;
+
 
 
 public class DetialActivity extends AppCompatActivity {

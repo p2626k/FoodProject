@@ -51,6 +51,19 @@ public class MemberFragment extends Fragment {
                 startActivity(intent);
             }
         });
+        //按下Like按鈕，資料傳送到FavoritesActivity頁面顯示於Tab的Like標籤RecyclerView上
+        Button btLike = (Button) view.findViewById(R.id.btLike);
+        btLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), FavoritesActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("member" , member);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
+        //按下SuperLike按鈕，資料傳送到FavoritesActivity頁面顯示於Tab的SuperLike標籤RecyclerView上
 
 
         return view;

@@ -21,12 +21,12 @@
             android:text="Search" />
 
         <Button
-            android:id="@+id/btLike"
+            android:id="@+id/btFavorite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="175dp"
-            android:text="@string/liked"
-            android:layout_marginStart="175dp"/>
+            android:text="Favorite"
+            android:layout_marginStart="175dp" />
     </LinearLayout>
 
     <android.support.v4.view.ViewPager
@@ -35,27 +35,5 @@
         android:layout_height="wrap_content"
         android:layout_weight="1" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:gravity="center"
-        style="?android:buttonBarStyle">
-
-        <Button
-            android:id="@+id/btNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="no"
-            style="?android:buttonBarButtonStyle" />
-
-        <Button
-            android:id="@+id/btYes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="yes"
-            style="?android:buttonBarButtonStyle" />
-
-    </LinearLayout>
 
 </LinearLayout>

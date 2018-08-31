@@ -24,7 +24,7 @@ public class HomeActivity extends AppCompatActivity {
     private EditText etEmail;
     private EditText etPassword;
     private Button btSearch;
-    private Button btLike;
+    private Button btFavorite;
     private final static String TAG = "HomeActivity";
     private int position ;
     private int vpPager = 0;
@@ -68,8 +68,8 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        //按下Like按鈕則轉至FavoritesActivity頁面
-        btLike.setOnClickListener(new View.OnClickListener() {
+        //按下Favorite按鈕則轉至FavoritesActivity頁面
+        btFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, FavoritesActivity.class);
@@ -89,7 +89,7 @@ public class HomeActivity extends AppCompatActivity {
         etEmail = (EditText) findViewById(R.id.etEmail);
         etPassword = (EditText) findViewById(R.id.etPassword);
         btSearch = (Button) findViewById(R.id.btSearch);
-        btLike = (Button) findViewById(R.id.btLike);
+        btFavorite = (Button) findViewById(R.id.btFavorite);
     }
 
     //建立餐廳清單
@@ -108,11 +108,6 @@ public class HomeActivity extends AppCompatActivity {
 
         return memberList;
     }
-
-    //按下Yes按鈕，資料傳送到FavoritesActivity頁面顯示於RecyclerView上
-
-    //按下No按鈕，資料刪除
-
 
     //建立onKeyDown()，當使用者按下返回鍵則返回LoginActivity頁面，清除LoginActivity的帳號密碼
     @Override
