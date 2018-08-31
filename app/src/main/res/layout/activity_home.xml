@@ -18,8 +18,7 @@
             android:id="@+id/btSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Search"
-            android:onClick="onSearchClick"/>
+            android:text="Search" />
 
         <Button
             android:id="@+id/btLike"
@@ -27,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="175dp"
             android:text="@string/liked"
-            android:onClick="onLikeClick"/>
+            android:layout_marginStart="175dp"/>
     </LinearLayout>
 
     <android.support.v4.view.ViewPager

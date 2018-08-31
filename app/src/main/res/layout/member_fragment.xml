@@ -28,7 +28,7 @@
             android:layout_weight="1"
             android:text="@string/explore_menu"
             android:textSize="10sp"
-            android:onClick="onExploreClick"/>
+            />
     </LinearLayout>
 
     <LinearLayout

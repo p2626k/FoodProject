@@ -23,6 +23,8 @@ public class HomeActivity extends AppCompatActivity {
     private ViewPager vpMember;
     private EditText etEmail;
     private EditText etPassword;
+    private Button btSearch;
+    private Button btLike;
     private final static String TAG = "HomeActivity";
     private int position ;
     private int vpPager = 0;
@@ -41,7 +43,7 @@ public class HomeActivity extends AppCompatActivity {
         MemberAdapter memberAdapter = new MemberAdapter(getSupportFragmentManager(), memberList);
         vpMember = (ViewPager) findViewById(R.id.vpMember);
         vpMember.setAdapter(memberAdapter);
-
+        //設定ViewPager監聽器取得索引值position
         vpMember.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -58,6 +60,22 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
+        //按下Search按鈕則轉至QuestionsActivity頁面
+        btSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, QuestionsActivity.class);
+                startActivity(intent);
+            }
+        });
+        //按下Like按鈕則轉至FavoritesActivity頁面
+        btLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, FavoritesActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -70,6 +88,8 @@ public class HomeActivity extends AppCompatActivity {
     public void findViews() {
         etEmail = (EditText) findViewById(R.id.etEmail);
         etPassword = (EditText) findViewById(R.id.etPassword);
+        btSearch = (Button) findViewById(R.id.btSearch);
+        btLike = (Button) findViewById(R.id.btLike);
     }
 
     //建立餐廳清單
@@ -89,43 +109,10 @@ public class HomeActivity extends AppCompatActivity {
         return memberList;
     }
 
-    //按下Search按鈕則轉至QuestionsActivity頁面
-    public void onSearchClick(View view) {
-        Intent intent = new Intent(HomeActivity.this, QuestionsActivity.class);
-        startActivity(intent);
-    }
-
-    //按下Like按鈕則轉至FavoritesActivity頁面
-    public void onLikeClick(View view) {
-        Intent intent = new Intent(HomeActivity.this, FavoritesActivity.class);
-        startActivity(intent);
-    }
-
-    //按下Explore按鈕則將資料轉至DetialActivity頁面
-    public void onExploreClick(View view) {
-        Log.d(TAG, "onExploreClick "+ vpPager );
-        Member member = memberList.get(vpPager);
-        Log.d(TAG, "step2 "+member.getName());
-        Intent intent = new Intent(HomeActivity.this, DetialActivity.class);
-        Bundle bundle = new Bundle();
-        Log.d(TAG, "step3");
-        bundle.putSerializable("member" , member);
-        intent.putExtras(bundle);
-        startActivity(intent);
-        Log.d(TAG, "step4");
-
-    }
-
-
-
-
     //按下Yes按鈕，資料傳送到FavoritesActivity頁面顯示於RecyclerView上
 
     //按下No按鈕，資料刪除
 
-    //設定滑動監聽器
-    //右滑資料傳送到FavoritesActivity頁面顯示於ListView上
-    //左滑資料刪除
 
     //建立onKeyDown()，當使用者按下返回鍵則返回LoginActivity頁面，清除LoginActivity的帳號密碼
     @Override

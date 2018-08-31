@@ -1,6 +1,8 @@
 package com.example.catherine.foodproject;
 
 
+import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -37,23 +39,22 @@ public class MemberFragment extends Fragment {
         TextView tvName = (TextView) view
                 .findViewById(R.id.tvName);
         tvName.setText(member.getName());
-        Button btExplore = (Button)view
-                .findViewById(R.id.btExplore);
+        //按下Explore按鈕則將資料轉至DetialActivity頁面
+        Button btExplore = (Button) view.findViewById(R.id.btExplore);
+        btExplore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), DetialActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("member" , member);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
 
 
         return view;
 
     }
 
-//    @Override
-//    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-//        super.onActivityCreated(savedInstanceState);
-//        Button btExplore = (Button)getActivity().findViewById(R.id.btExplore);
-//        btExplore.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-//    }
 }
