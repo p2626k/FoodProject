@@ -64,7 +64,17 @@ public class MemberFragment extends Fragment {
             }
         });
         //按下SuperLike按鈕，資料傳送到FavoritesActivity頁面顯示於Tab的SuperLike標籤RecyclerView上
-
+        Button btSuperLike = (Button) view.findViewById(R.id.btSuperLike);
+        btSuperLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), FavoritesActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("member" , member);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
 
         return view;
 

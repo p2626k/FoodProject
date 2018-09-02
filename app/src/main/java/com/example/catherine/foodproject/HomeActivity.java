@@ -28,7 +28,6 @@ public class HomeActivity extends AppCompatActivity {
     private final static String TAG = "HomeActivity";
     private int position ;
     private int vpPager = 0;
-    private Button btExplore;
 
 
     @Override
@@ -93,7 +92,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     //建立餐廳清單
-    private List<Member> getMemberList() {
+    public List<Member> getMemberList() {
         memberList = new ArrayList<>();
         memberList.add(new Member("Lady M", R.drawable.s1, "15km", R.drawable.m1, "台北市大安區光復南路240巷26號", 5, "Desserts", "Munchies"));
         memberList.add(new Member("吉星", R.drawable.s2, "12km", R.drawable.m2, "台北市南京東路一段92號2樓", 3, "Chinese", "Lunch"));

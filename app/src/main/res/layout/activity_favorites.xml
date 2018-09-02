@@ -1,56 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/tabhost"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FavoritesActivity">
+    tools:context=".FavoritesActivity"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+  <android.support.design.widget.TabLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:tabMode="fixed"
+      app:tabGravity="fill"
+      android:id="@+id/tabLayout_id">
+  </android.support.design.widget.TabLayout>
+  <android.support.v4.view.ViewPager
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:id="@+id/viewpager_id">
+  </android.support.v4.view.ViewPager>
 
-        <TabWidget
-            android:id="@android:id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"/>
-        <FrameLayout
-            android:id="@android:id/tabcontent"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-            <!--定義Liked頁籤內容-->
-            <LinearLayout
-                android:id="@+id/Liked"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/rvLiked"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                </android.support.v7.widget.RecyclerView>
-            </LinearLayout>
-            <!--定義SuperLiked頁籤內容-->
-            <LinearLayout
-                android:id="@+id/SuperLiked"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:orientation="vertical">
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rvSuperLiked"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-            </android.support.v7.widget.RecyclerView>
-            </LinearLayout>
-
-
-        </FrameLayout>
-
-
-    </LinearLayout>
-
-</TabHost>
+</LinearLayout>
