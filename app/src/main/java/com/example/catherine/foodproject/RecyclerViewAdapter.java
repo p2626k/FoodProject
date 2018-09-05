@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 /**
@@ -52,7 +54,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 //        Bundle bundle = getIntent().getExtras();
 //        Member member = (Member)bundle.getSerializable("member");
         viewHolder.tvName.setText(memberList.get(position).getName());
-        viewHolder.ivImage.setImageResource(memberList.get(position).getImage());
+//        viewHolder.ivImage.setImageResource(memberList.get(position).getImage());
+        Glide.with(context)
+                .load(memberList.get(position).getImage())
+                .into(viewHolder.ivImage);
         viewHolder.tvCuisine.setText(memberList.get(position).getCuisineType());
         viewHolder.rbPriceEvaluation.setRating(memberList.get(position).getPriceEvaluation());
         viewHolder.tvDistance.setText(memberList.get(position).getDistance());

@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(LoginActivity.this , HomeActivity.class);
                         startActivity(intent);
 //                    }else{//密碼帳號不符合時於下方TextView顯示"輸入錯誤，請重新登入"
-                        tvShow.setText("輸入錯誤，請重新登入");
+//                        tvShow.setText("輸入錯誤，請重新登入");
                     }
 //                }
 

@@ -34,7 +34,7 @@ public class DetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.detial_fragment, container, false);
         ImageView ivMenu = (ImageView) view
                 .findViewById(R.id.ivMenu);
-        ivMenu.setImageResource(member.getImage1());
+//        ivMenu.setImageResource(member.getImage1());
 
         TextView tvAddress = (TextView) view
                 .findViewById(R.id.tvAddress);

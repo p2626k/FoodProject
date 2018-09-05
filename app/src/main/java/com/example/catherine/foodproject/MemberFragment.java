@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 public class MemberFragment extends Fragment {
     private Member member;
 
@@ -30,7 +32,10 @@ public class MemberFragment extends Fragment {
         View view = inflater.inflate(R.layout.member_fragment, container, false);
         ImageView ivImage = (ImageView) view
                 .findViewById(R.id.ivImage);
-        ivImage.setImageResource(member.getImage());
+//        ivImage.setImageResource(member.getImage());
+        Glide.with(this)
+                .load(member.getImage())
+                .into(ivImage);
 
         TextView tvDistance = (TextView) view
                 .findViewById(R.id.tvDistance);

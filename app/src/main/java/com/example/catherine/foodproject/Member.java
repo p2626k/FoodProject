@@ -9,9 +9,9 @@ import java.util.List;
 
 public class Member implements Serializable {
     private String name;
-    private int image;
+    private String image;
     private String distance;
-    private int image1;
+    private String image1;
     private String address;
     private float priceEvaluation;//RatingBar數量
     private String cuisineType;
@@ -21,7 +21,7 @@ public class Member implements Serializable {
     public Member() {
     }
 
-    public Member(String name, int Image, String distance, int image1, String address, float priceEvaluation, String cuisineType, String foodType){
+    public Member(String name, String Image, String distance, String image1, String address, float priceEvaluation, String cuisineType, String foodType){
         super();
         this.name = name;
         this.image = Image;
@@ -42,12 +42,12 @@ public class Member implements Serializable {
         this.name = name;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
-        image = image;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getDistance() {
@@ -58,11 +58,11 @@ public class Member implements Serializable {
         this.distance = distance;
     }
 
-    public int getImage1() {
+    public String getImage1() {
         return image1;
     }
 
-    public void setImage1(int image1) {
+    public void setImage1(String image1) {
         this.image1 = image1;
     }
 
@@ -97,6 +97,4 @@ public class Member implements Serializable {
     public void setFoodType(String foodType) {
         this.foodType = foodType;
     }
-
-
 }
