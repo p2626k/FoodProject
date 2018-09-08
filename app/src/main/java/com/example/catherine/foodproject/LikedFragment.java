@@ -10,6 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -19,7 +27,7 @@ import java.util.List;
 public class LikedFragment extends Fragment {
     View view;
     private RecyclerView recyclerView;
-    private List<Member> memberList;
+    private List<Member> memberList = new ArrayList<>();
 
     public LikedFragment() {
     }
@@ -29,16 +37,32 @@ public class LikedFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_liked, container, false);
         recyclerView = (RecyclerView)view.findViewById(R.id.liked_recyclerView);
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(getContext(), memberList);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(recyclerViewAdapter);
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("liked");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
+                    Member member = dataSnapshot1.getValue(Member.class);
+                    memberList.add(member);
+                }
+                RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(getContext(), memberList);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                recyclerView.setAdapter(recyclerViewAdapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
         return view;
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bundle bundle = this.getArguments();
-        Member member = (Member)bundle.getSerializable("member");
+
     }
 }

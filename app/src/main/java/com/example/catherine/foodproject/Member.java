@@ -10,28 +10,28 @@ import java.util.List;
 public class Member implements Serializable {
     private String name;
     private String image;
-    private String distance;
+    private int distance;
     private String image1;
     private String address;
     private float priceEvaluation;//RatingBar數量
     private String cuisineType;
     private String foodType;
+    private int id;
 
 
     public Member() {
     }
 
-    public Member(String name, String Image, String distance, String image1, String address, float priceEvaluation, String cuisineType, String foodType){
-        super();
+    public Member(String name, String image, int distance, String image1, String address, float priceEvaluation, String cuisineType, String foodType, int id) {
         this.name = name;
-        this.image = Image;
-        this.image1 = image1;
+        this.image = image;
         this.distance = distance;
+        this.image1 = image1;
         this.address = address;
         this.priceEvaluation = priceEvaluation;
         this.cuisineType = cuisineType;
         this.foodType = foodType;
-
+        this.id = id;
     }
 
     public String getName() {
@@ -50,11 +50,11 @@ public class Member implements Serializable {
         this.image = image;
     }
 
-    public String getDistance() {
+    public int getDistance() {
         return distance;
     }
 
-    public void setDistance(String distance) {
+    public void setDistance(int distance) {
         this.distance = distance;
     }
 
@@ -96,5 +96,13 @@ public class Member implements Serializable {
 
     public void setFoodType(String foodType) {
         this.foodType = foodType;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

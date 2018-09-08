@@ -1,5 +1,6 @@
 package com.example.catherine.foodproject;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
@@ -24,9 +25,19 @@ FavoritesActivity extends AppCompatActivity {
         viewPager = (ViewPager)findViewById(R.id.viewpager_id);
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
+
+
         //Add Fragment here
-        viewPagerAdapter.addFragment(new LikedFragment(), "Liked");
-        viewPagerAdapter.addFragment(new SuperLikedFragment(), "SuperLiked");
+        Bundle bundle = new Bundle();
+        Member member = (Member) getIntent().getSerializableExtra("member");
+        bundle.putSerializable("member", member);
+
+        LikedFragment likedFragment = new LikedFragment();
+        likedFragment.setArguments(bundle);
+        SuperLikedFragment superLikedFragment = new SuperLikedFragment();
+        superLikedFragment.setArguments(bundle);
+        viewPagerAdapter.addFragment(likedFragment, "Liked");
+        viewPagerAdapter.addFragment(superLikedFragment, "SuperLiked");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 

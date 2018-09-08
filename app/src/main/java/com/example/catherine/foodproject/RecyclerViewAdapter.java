@@ -51,16 +51,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder( RecyclerViewAdapter.MyViewHolder viewHolder, int position) {
-//        Bundle bundle = getIntent().getExtras();
-//        Member member = (Member)bundle.getSerializable("member");
         viewHolder.tvName.setText(memberList.get(position).getName());
-//        viewHolder.ivImage.setImageResource(memberList.get(position).getImage());
         Glide.with(context)
                 .load(memberList.get(position).getImage())
                 .into(viewHolder.ivImage);
         viewHolder.tvCuisine.setText(memberList.get(position).getCuisineType());
         viewHolder.rbPriceEvaluation.setRating(memberList.get(position).getPriceEvaluation());
-        viewHolder.tvDistance.setText(memberList.get(position).getDistance());
+        viewHolder.tvDistance.setText(String.valueOf(memberList.get(position).getDistance()));
 
     }
 
