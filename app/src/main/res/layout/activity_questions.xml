@@ -23,12 +23,14 @@
             android:layout_height="wrap_content">
 
             <CheckBox
+                android:id="@+id/cbBreakfast"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/breakfast"
                 android:layout_weight="1"/>
 
             <CheckBox
+                android:id="@+id/cbBrunch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/brunch"
@@ -41,12 +43,14 @@
             android:layout_height="wrap_content">
 
             <CheckBox
+                android:id="@+id/cbLunch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/lunch"
                 android:layout_weight="1"/>
 
             <CheckBox
+                android:id="@+id/cbMunchies"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/munchies"
@@ -59,28 +63,18 @@
         android:layout_height="wrap_content">
 
         <CheckBox
+            android:id="@+id/cbDinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dinner"
             android:layout_weight="1"/>
 
         <CheckBox
+            android:id="@+id/cbDrinks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/drinks"
             android:layout_weight="1"/>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <CheckBox
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/i_just_want_to_look_at_food_pics"
-                android:layout_weight="1"/>
 
 
         </LinearLayout>
@@ -93,12 +87,14 @@
             android:layout_height="wrap_content">
 
             <CheckBox
+                android:id="@+id/cbAmerican"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/american"
                 android:layout_weight="1"/>
 
             <CheckBox
+                android:id="@+id/cbFrench"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/french"
@@ -111,12 +107,14 @@
             android:layout_height="wrap_content">
 
             <CheckBox
+                android:id="@+id/cbMexican"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/mexican"
                 android:layout_weight="1"/>
 
             <CheckBox
+                android:id="@+id/cbJapanese"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/japanese"
@@ -129,12 +127,14 @@
             android:layout_height="wrap_content">
 
             <CheckBox
+                android:id="@+id/cbThai"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/thai"
                 android:layout_weight="1"/>
 
             <CheckBox
+                android:id="@+id/cbVietnam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/vietnam"
@@ -147,12 +147,14 @@
             android:layout_height="wrap_content">
 
             <CheckBox
+                android:id="@+id/cbPizza"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pizza"
                 android:layout_weight="1"/>
 
             <CheckBox
+                android:id="@+id/cbDesserts"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/desserts"
@@ -165,12 +167,14 @@
             android:layout_height="wrap_content">
 
             <CheckBox
+                android:id="@+id/cbChinese"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/chinese"
                 android:layout_weight="1"/>
 
             <CheckBox
+                android:id="@+id/cbItalian"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/italian"
@@ -183,27 +187,17 @@
             android:layout_height="wrap_content">
 
             <CheckBox
+                android:id="@+id/cbVegetarian"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/vegetarian"
                 android:layout_weight="1"/>
 
             <CheckBox
+                android:id="@+id/cbMedeteranian"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/medeteranian"
-                android:layout_weight="1"/>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <CheckBox
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/bring_me_everything"
                 android:layout_weight="1"/>
 
 
@@ -215,17 +209,10 @@
             android:text="@string/how_much_dough_do_you_have"/>
 
         <RatingBar
+            android:id="@+id/rbPriceEvaluation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/how_far_do_you_want_to_go"/>
-
-        <SeekBar
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -250,7 +237,32 @@
 
 
         </LinearLayout>
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
+        <!--<TextView-->
+            <!--android:id="@+id/tvShowC"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="20dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_margin="5dp"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/tvShowF"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="20dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_margin="5dp"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/tvShowR"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:textSize="20dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_margin="5dp"/>-->
 
-
+        <!--</LinearLayout>-->
     </LinearLayout>
 </ScrollView>

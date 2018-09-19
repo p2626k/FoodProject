@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
@@ -35,8 +36,18 @@ public class HomeActivity extends AppCompatActivity {
     private Button btSearch;
     private Button btFavorite;
     private final static String TAG = "HomeActivity";
+    private final static int EDIT = 1;
     private int position ;
     private int vpPager = 0;
+    ArrayList<String> result = new ArrayList<>();
+    ArrayList<String> result1 = new ArrayList<>();
+    private float result2;
+    private float q;
+    private String a;
+    private String z;
+    List<Member> conditionMemberList = new ArrayList<>();
+
+
 
 
     @Override
@@ -56,9 +67,7 @@ public class HomeActivity extends AppCompatActivity {
                     Member member = dataSnapshot1.getValue(Member.class);
                     memberList.add(member);
                 }
-                MemberAdapter memberAdapter = new MemberAdapter(getSupportFragmentManager(), memberList);
-                vpMember = (ViewPager) findViewById(R.id.vpMember);
-                vpMember.setAdapter(memberAdapter);
+                resetPager(memberList);
                 //設定ViewPager監聽器取得索引值position
                 vpMember.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                     @Override
@@ -76,6 +85,7 @@ public class HomeActivity extends AppCompatActivity {
 
                     }
                 });
+
             }
 
             @Override
@@ -90,7 +100,8 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, QuestionsActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,EDIT);
+//                comparisonCondition();
             }
         });
         //按下Favorite按鈕則轉至FavoritesActivity頁面
@@ -101,6 +112,7 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
     }
 
@@ -115,6 +127,7 @@ public class HomeActivity extends AppCompatActivity {
         etPassword = (EditText) findViewById(R.id.etPassword);
         btSearch = (Button) findViewById(R.id.btSearch);
         btFavorite = (Button) findViewById(R.id.btFavorite);
+        vpMember = (ViewPager) findViewById(R.id.vpMember);
     }
 
 
@@ -133,6 +146,60 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK){
+            if(requestCode == EDIT){
+                result = data.getBundleExtra("condition").getStringArrayList("cuisine");
+                result1 = data.getBundleExtra("condition").getStringArrayList("foodType");
+                result2 = data.getBundleExtra("condition").getFloat("priceEvaluation");
+                comparisonCondition();
+                resetPager(conditionMemberList);
+            }
+        }
+
+    }
+
+    private void resetPager(List<Member> memberList) {
+        MemberAdapter memberAdapter = new MemberAdapter(getSupportFragmentManager(), memberList);
+        vpMember.setAdapter(memberAdapter);
+    }
+
+    //比對條件後更新viewPager
+    private void comparisonCondition(){
+        for(int i = 0; i < memberList.size(); i++) {
+            //如果cuisine條件符合or foodType條件符合 or priceEvaluation >= 條件，取得memberList符合條件之成員
+            for (int j = 0; j < result.size(); j++) {
+                if (result.contains(memberList.get(i).getCuisineType())) {
+                    if(!conditionMemberList.contains(memberList.get(i))){
+                        conditionMemberList.add(memberList.get(i));
+                    }
+                }
+            }
+        }
+        for(int i = 0; i < memberList.size(); i++) {
+            //如果cuisine條件符合or foodType條件符合 or priceEvaluation >= 條件，取得memberList符合條件之成員
+            for(int k =0; k<result1.size(); k++){
+                if (result1.contains(memberList.get(i).getFoodType())) {
+                    if(!conditionMemberList.contains(memberList.get(i))){
+                        conditionMemberList.add(memberList.get(i));
+                    }
+                }
+            }
+        }
+        for(int i = 0; i < memberList.size(); i++) {
+            //如果cuisine條件符合or foodType條件符合 or priceEvaluation >= 條件，取得memberList符合條件之成員
+            if (result2 == memberList.get(i).getPriceEvaluation())  {
+                if(!conditionMemberList.contains(memberList.get(i))){
+                    conditionMemberList.add(memberList.get(i));
+                }
+            }
+
+        }
+
     }
 
 }

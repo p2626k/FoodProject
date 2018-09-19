@@ -65,8 +65,6 @@ public class MemberFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 DatabaseReference database = FirebaseDatabase.getInstance().getReference("liked");
-                    Log.d(TAG,database.getKey());
-                    Log.d(TAG,member.toString());
                     database.child(String.valueOf(member.getId())).setValue(member);
                     Intent intent = new Intent(getActivity(), FavoritesActivity.class);
                     Bundle bundle = new Bundle();

@@ -58,14 +58,14 @@ public class LoginActivity extends AppCompatActivity {
             int version = android.os.Build.VERSION.SDK_INT;
             Context mContext = getBaseContext();
             ActivityManager activityMgr = (ActivityManager) mContext.getSystemService(Context.ACTIVITY_SERVICE);
-            if (version <= 7) {
-                activityMgr.restartPackage(mContext.getPackageName());
-            } else {
+//            if (version <= 7) {
+//                activityMgr.restartPackage(mContext.getPackageName());
+//            } else {
                 mContext.stopService(new Intent(mContext, LoginActivity.class));
                 activityMgr.killBackgroundProcesses(mContext.getPackageName());
-            }
-
-            return true;
+//            }
+//
+//            return true;
         }
         return super.onKeyDown(keyCode, event);
     }
