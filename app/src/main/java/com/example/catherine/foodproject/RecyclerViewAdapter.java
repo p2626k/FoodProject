@@ -1,7 +1,6 @@
 package com.example.catherine.foodproject;
 
 import android.content.Context;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,28 +17,13 @@ import java.util.List;
  * Created by ASUS on 2018/9/2.
  */
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>{
-        Context context;
-        List<Member> memberList;
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
+    Context context;
+    List<Member> memberList;
 
-    RecyclerViewAdapter(Context context,List<Member> memberList){
+    RecyclerViewAdapter(Context context, List<Member> memberList) {
         this.context = context;
         this.memberList = memberList;
-    }
-    public class MyViewHolder extends RecyclerView.ViewHolder{
-        TextView tvName;
-        ImageView ivImage;
-        TextView tvCuisine;
-        RatingBar rbPriceEvaluation;
-        TextView tvDistance;
-        public MyViewHolder(View itemView) {
-            super(itemView);
-            tvName = (TextView)itemView.findViewById(R.id.tvName);
-            ivImage = (ImageView)itemView.findViewById(R.id.ivImage);
-            tvCuisine = (TextView)itemView.findViewById(R.id.tvCuisine);
-            rbPriceEvaluation = (RatingBar) itemView.findViewById(R.id.rbPriceEvaluation);
-            tvDistance = (TextView)itemView.findViewById(R.id.tvDistance);
-        }
     }
 
     @Override
@@ -50,7 +34,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder( RecyclerViewAdapter.MyViewHolder viewHolder, int position) {
+    public void onBindViewHolder(RecyclerViewAdapter.MyViewHolder viewHolder, int position) {
         viewHolder.tvName.setText(memberList.get(position).getName());
         Glide.with(context)
                 .load(memberList.get(position).getImage())
@@ -64,6 +48,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public int getItemCount() {
         return memberList.size();
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        TextView tvName;
+        ImageView ivImage;
+        TextView tvCuisine;
+        RatingBar rbPriceEvaluation;
+        TextView tvDistance;
+
+        public MyViewHolder(View itemView) {
+            super(itemView);
+            tvName = itemView.findViewById(R.id.tvName);
+            ivImage = itemView.findViewById(R.id.ivImage);
+            tvCuisine = itemView.findViewById(R.id.tvCuisine);
+            rbPriceEvaluation = itemView.findViewById(R.id.rbPriceEvaluation);
+            tvDistance = itemView.findViewById(R.id.tvDistance);
+        }
     }
 
 

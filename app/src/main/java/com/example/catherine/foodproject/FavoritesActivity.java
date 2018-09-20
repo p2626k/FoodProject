@@ -11,7 +11,7 @@ import android.os.Bundle;
 public class
 
 FavoritesActivity extends AppCompatActivity {
-    private final static String TAB ="FavoritesActivity";
+    private final static String TAB = "FavoritesActivity";
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private ViewPagerAdapter viewPagerAdapter;
@@ -21,10 +21,9 @@ FavoritesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
 
-        tabLayout = (TabLayout)findViewById(R.id.tabLayout_id);
-        viewPager = (ViewPager)findViewById(R.id.viewpager_id);
+        tabLayout = findViewById(R.id.tabLayout_id);
+        viewPager = findViewById(R.id.viewpager_id);
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-
 
 
         //Add Fragment here

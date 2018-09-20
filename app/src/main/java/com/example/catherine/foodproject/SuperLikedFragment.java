@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,13 +35,13 @@ public class SuperLikedFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_super_liked, container, false);
-        recyclerView = (RecyclerView)view.findViewById(R.id.superLiked_recyclerView);
+        recyclerView = view.findViewById(R.id.superLiked_recyclerView);
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("superliked");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                     Member member = dataSnapshot1.getValue(Member.class);
                     memberList.add(member);
                 }
@@ -59,6 +58,7 @@ public class SuperLikedFragment extends Fragment {
 
         return view;
     }
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

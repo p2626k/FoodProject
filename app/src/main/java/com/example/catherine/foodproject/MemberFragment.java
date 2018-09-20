@@ -2,10 +2,8 @@ package com.example.catherine.foodproject;
 
 
 import android.content.Intent;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,8 +17,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class MemberFragment extends Fragment {
-    private Member member;
     private static final String TAG = "MemberFragment";
+    private Member member;
 
     //取得餐廳物件後指派給實體變數，方便onCreateView()使用
     @Override
@@ -30,6 +28,7 @@ public class MemberFragment extends Fragment {
             member = (Member) getArguments().getSerializable("member");
         }
     }
+
     //將餐廳物件member的相關資料取出後顯示在ImageView與TextView上
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
@@ -54,7 +53,7 @@ public class MemberFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), DetialActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("member" , member);
+                bundle.putSerializable("member", member);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
@@ -65,11 +64,13 @@ public class MemberFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 DatabaseReference database = FirebaseDatabase.getInstance().getReference("liked");
-                    database.child(String.valueOf(member.getId())).setValue(member);
-                    Intent intent = new Intent(getActivity(), FavoritesActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("member", member);
-                    intent.putExtras(bundle);
+                database.child(String.valueOf(member.getId())).setValue(member);
+                Intent intent = new Intent(getActivity(), FavoritesActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("member", member);
+                intent.putExtras(bundle);
+                Toast.makeText(getContext(), member.getName() + "已加入LIKED清單", Toast.LENGTH_LONG).show();
+
             }
         });
         //按下SuperLike按鈕，資料傳送到FavoritesActivity頁面顯示於Tab的SuperLike標籤RecyclerView上
@@ -78,11 +79,13 @@ public class MemberFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 DatabaseReference database = FirebaseDatabase.getInstance().getReference("superliked");
-                    database.child(String.valueOf(member.getId())).setValue(member);
-                    Intent intent = new Intent(getActivity(), FavoritesActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("member" , member);
-                    intent.putExtras(bundle);
+                database.child(String.valueOf(member.getId())).setValue(member);
+                Intent intent = new Intent(getActivity(), FavoritesActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("member", member);
+                intent.putExtras(bundle);
+                Toast.makeText(getContext(), member.getName() + "已加入SUPERLIKED清單", Toast.LENGTH_LONG).show();
+
             }
         });
 

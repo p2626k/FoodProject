@@ -106,6 +106,7 @@ public class Member implements Serializable {
         this.id = id;
     }
 
+    //Override equals 與 hashCode 方法，比較依據為Member中的id
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
